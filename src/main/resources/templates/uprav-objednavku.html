@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Objednavkovy system v1">
+    <meta name="keywords" content="Tricka">
+    <meta name="author" content="Anton Kostrab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uprav objednavku</title>
+</head>
+<body>
+<h1> Uprav  objednavku</h1>
+
+<form method="POST" th:action="@{/uloz-upravenu-objednavku}" th:object="${objednavkaObjektPodlaIdThymeleaf} ">
+
+    <input th:field="*{id}" type="hidden"/>
+    <input th:field="*{pouzivatel.id}" type="hidden" /><br />
+
+    <label> Popis</label> <input th:field="*{popis}" type="text" /> <br>
+  <!--  <label> Farba</label> <input th:field="*{farba}" type="text" /> <br>-->
+    <label> Farba</label>
+    <select th:field="*{farba}" type="text" >
+    <option value="Červená">Červená </option>
+        <option value="Modrá">Modrá </option>
+        <option value="Zelená">Zelená </option>
+
+
+
+
+    </select> <br>
+    <label> Značka</label> <input th:field="*{znacka}" type="text" /> <br>
+    <!--<label> Veľkosť</label> <input th:field="*{velkost}" type="text" /> <br>-->
+
+    <label> Veľkosť</label>
+    <select th:field="*{velkost}" type="text" >
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+
+
+
+
+    </select> <br>
+
+
+    <label> Počet</label> <input th:field="*{pocet}" type="number" /> <br>
+    <label> Dátum objednávky</label> <input th:field="*{datumObjednavky}" type="date" /> <br>
+    <label> Meno zákaznika</label> <input th:field="*{menoZakaznika}" type="text" /> <br>
+    <br>
+    <button type="submit">Ulož objednávku</button>
+
+
+
+
+
+</form>
+
+</body>
+</html>

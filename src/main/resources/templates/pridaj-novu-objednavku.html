@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sk" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Objednavkovy system v1">
+    <meta name="keywords" content="Tricka">
+    <meta name="author" content="Anton Kostrab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+    <title>Pridaj novú objednávku</title>
+</head>
+<body>
+<div class="row justify-content-center" >
+    <div class="col-auto">
+<h1> Pridaj novú objednavku</h1>
+
+        <form th:action="@{/logout}" method="post" style="
+    float: right;
+">
+
+            <button type="submit"  value="Sign Out" class="btn btn-primary" style="    margin-top: -6px;
+
+">Odhlásiť</button>
+
+            <!--<input type="submit" value="Sign Out"/>-->
+        </form>
+
+<form method="POST" th:action="@{/uloz-objednavku}" th:object="${objednavkaObjektThymeleaf} ">
+    <label> Popis</label> <input th:field="*{popis}" type="text" /> <br>
+  <!--  <label> Farba</label> <input th:field="*{farba}" type="text" /> <br>-->
+    <label> Farba</label>
+    <select th:field="*{farba}" type="text" >
+    <option value="Červená">Červená </option>
+        <option value="Modrá">Modrá </option>
+        <option value="Zelená">Zelená </option>
+
+
+
+
+    </select> <br>
+    <label> Značka</label> <input th:field="*{znacka}" type="text" /> <br>
+    <!--<label> Veľkosť</label> <input th:field="*{velkost}" type="text" /> <br>-->
+
+    <label> Veľkosť</label>
+    <select th:field="*{velkost}" type="text" >
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+
+
+
+
+    </select> <br>
+
+
+    <label> Počet</label> <input th:field="*{pocet}" type="number" /> <br>
+    <label> Dátum objednávky</label> <input th:field="*{datumObjednavky}" type="date" /> <br>
+
+    <label> Meno zákaznika</label> <input th:field="*{menoZakaznika}" type="text" /> <br>
+    <input th:field="*{pouzivatel.id}" type="hidden" /><br />
+    <br>
+    <center>
+
+        <button type="submit" class="btn btn-success">Ulož objednávku</button>
+    <!--<button type="submit">Ulož objednávku</button>-->
+
+
+        </center>
+</form>
+
+
+    </div>
+
+
+
+</div>
+
+</body>
+</html>
